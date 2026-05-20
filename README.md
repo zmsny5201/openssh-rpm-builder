@@ -1,36 +1,36 @@
-│             # OpenSSH RPM Builder                                                                                                                                                                                       │
-│                                                                                                                                                                                                                         │
-│             适用于 **银河麒麟 V10** / RHEL / CentOS 的 OpenSSH RPM 一键打包脚本。                                                                                                                                       │
-│                                                                                                                                                                                                                         │
-│             ## 功能                                                                                                                                                                                                     │
-│                                                                                                                                                                                                                         │
-│             - 自动下载最新版 OpenSSH 源码并编译为 RPM 包                                                                                                                                                                │
-│             - 支持指定版本或使用本地源码包                                                                                                                                                                              │
-│             - 自动解决编译依赖                                                                                                                                                                                          │
-│             - 生成的 RPM 可直接用 `rpm -ivh` 或 `yum localinstall` 安装                                                                                                                                                 │
-│                                                                                                                                                                                                                         │
-│             ## 使用方法                                                                                                                                                                                                 │
-│                                                                                                                                                                                                                         │
-│             ```bash                                                                                                                                                                                                     │
-│             # 自动下载最新版并打包                                                                                                                                                                                      │
-│             sh build-openssh-rpm.sh                                                                                                                                                                                     │
-│                                                                                                                                                                                                                         │
-│             # 指定版本                                                                                                                                                                                                  │
-│             sh build-openssh-rpm.sh -v 10.3p1                                                                                                                                                                           │
-│                                                                                                                                                                                                                         │
-│             # 使用本地源码包                                                                                                                                                                                            │
-│             sh build-openssh-rpm.sh -f openssh-10.3p1.tar.gz                                                                                                                                                            │
-│                                                                                                                                                                                                                         │
-│             # 跳过依赖安装（已安装过时）                                                                                                                                                                                │
-│             sh build-openssh-rpm.sh --skip-deps                                                                                                                                                                         │
-│             ```                                                                                                                                                                                                         │
-│                                                                                                                                                                                                                         │
-│             ## 安装生成的 RPM                                                                                                                                                                                           │
-│                                                                                                                                                                                                                         │
-│             ```bash                                                                                                                                                                                                     │
-│             cd RPMS/x86_64                                                                                                                                                                                              │
-│             yum localinstall *.rpm --allowerasing -y                                                                                                                                                                    │
-│             systemctl daemon-reload                                                                                                                                                                                     │
-│             systemctl restart sshd                                                                                                                                                                                      │
-│             sshd -V                                                                                                                                                                                                     │
-│             ```                                
+# OpenSSH RPM Builder                                                
+
+适用于 **银河麒麟 V10** / RHEL / CentOS 的 OpenSSH RPM 一键打包脚本。
+
+## 功能                                                              
+
+- 自动下载最新版 OpenSSH 源码并编译为 RPM 包                         
+- 支持指定版本或使用本地源码包                                       
+- 自动解决编译依赖                                                   
+- 生成的 RPM 可直接用 `rpm -ivh` 或 `yum localinstall` 安装          
+
+## 使用方法                                                          
+
+```bash                                                              
+# 自动下载最新版并打包                                               
+sh build-openssh-rpm.sh                                              
+
+# 指定版本                                                           
+sh build-openssh-rpm.sh -v 10.3p1                                    
+
+# 使用本地源码包                                                     
+sh build-openssh-rpm.sh -f openssh-10.3p1.tar.gz                     
+
+# 跳过依赖安装（已安装过时）                                         
+sh build-openssh-rpm.sh --skip-deps                                  
+```                                                                  
+
+## 安装生成的 RPM                                                    
+
+```bash                                                              
+cd RPMS/x86_64                                                       
+yum localinstall *.rpm --allowerasing -y                             
+systemctl daemon-reload                                              
+systemctl restart sshd                                               
+sshd -V                                                              
+```                                
